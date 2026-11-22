@@ -1,4 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
+// Por defeito a API é a mesma origem (rotas /api/v1 do próprio Next.js).
+// Define NEXT_PUBLIC_API_BASE_URL apenas se usares o backend Python em separado.
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? '';
 
 export function getToken(): string | null {
   if (typeof window === 'undefined') return null;

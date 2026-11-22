@@ -1,0 +1,11 @@
+# Deploy no Netlify: o frontend Next.js (com a API em /api/v1) vive em frontend/
+# Variáveis de ambiente necessárias no Netlify:
+#   DATABASE_URL    (string de ligação do Neon)
+#   JWT_SECRET_KEY  (texto aleatório longo)
+# Opcionais: AI_API_KEY, AI_MODEL, META_APP_ID, META_APP_SECRET
+[build]
+  base = "frontend"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
