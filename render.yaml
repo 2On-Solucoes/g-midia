@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: g-midia-api
+    runtime: docker
+    plan: free
+    region: ohio
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false   # cola a URL do Neon (postgresql+psycopg://...)
+      - key: BACKEND_CORS_ORIGINS
+        sync: false   # URL do frontend, ex: https://g-midia.netlify.app
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: AI_API_KEY
+        sync: false
